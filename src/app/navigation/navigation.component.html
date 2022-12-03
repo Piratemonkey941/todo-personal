@@ -1,0 +1,74 @@
+<nav class="navbar navbar-light style=background-color: #e3f2fd; navbar-expand-lg mb-4">
+  <a class="navbar-brand brand" id="brand" routerLink="/app-dashboard">To Do App</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarToggler"
+    aria-label="Toggle navigation"
+    aria-controls="navbarToggler"
+    aria-expanded="false"
+    (click)="collapsed = !collapsed"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div
+    class="collapse navbar-collapse"
+    id="navbarToggler"
+    [class.collapse]="collapsed"
+    (window:resize)="collapsed = true"
+  >
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/calendar" routerLinkActive="active">Calendar</a>
+      </li>
+    </ul>
+
+    <!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <button class="btn" (click)="deleteTasks()">Clear all Tasks</button>
+        <a class="nav-link" (click)="deleteTasks()">Clear all tasks</a>
+      </li>
+    </ul> -->
+
+  </div>
+</nav>
+
+<!-- <button
+class="btn btn-outline-danger btn-sm col-me-2 float-end"
+type="button"
+data-bs-target="#exampleModal"
+(click)="deleteTasks()"
+>
+Delete
+</button> -->
+
+
+
+
+<div class="container  display-1">
+      <div class="welcome">
+
+            <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      </div>
+            <div>  |  </div>
+      <div class="welcome">
+
+            <a class="nav-link" routerLink="/calendar" routerLinkActive="active">Calendar</a>
+        </div>
+
+
+        <!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/calendar" routerLinkActive="active">Calendar</a>
+            </li>
+          </ul> -->
+  </div>
+

@@ -1,0 +1,10 @@
+h1 {
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.table-responsive-lg {
+  padding-left: 5em;
+  padding-right: 5em;
+}

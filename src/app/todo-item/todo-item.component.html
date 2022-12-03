@@ -1,0 +1,46 @@
+
+<div class="todo-item" (click)="onTodoClicked()" [class.completed]="todo.completed">
+
+  <!-- Displays text -->
+  <div class="todo-text">
+    {{ todo.text }}
+  </div>
+
+  <div class="todo-controls-box" appToolTipSingleton (click)="$event.stopPropagation()">
+
+    <div class="todo-control-button" appToolTip="Edit Todo" (click)="onEditClicked()">
+      <button
+      class="btn btn-outline-primary btn-sm col-me-2 float-end"
+      data-bs-toggle="modal"
+      type="button"
+      data-bs-target="#exampleModal"
+      appToolTip="Edit Todo"
+      (click)="onEditClicked()"
+
+      >Edit</button>
+
+  </div>
+    <button
+        class="btn btn-outline-danger btn-sm col-me-2 float-end"
+        type="button"
+        data-bs-target="#exampleModal"
+        appToolTip="Delete Todo"
+        (click)="onDeleteClicked()"
+      >
+        Delete
+    </button>
+  </div>
+</div>
+
+
+<!--
+<button
+class="btn btn-outline-primary btn-sm col-me-2 float-end"
+data-bs-toggle="modal"
+type="button"
+data-bs-target="#exampleModal"
+appToolTip="Edit Todo"
+(click)="onEditClicked()"
+  Edit
+      </button>
+> -->
