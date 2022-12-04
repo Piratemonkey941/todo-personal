@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
-import { EditModalComponent } from '../edit-modal/edit-modal.component'
+// import { EditModalComponent } from '../edit-modal/edit-modal.component'
 
 Injectable({
   providedIn: 'root',
@@ -20,6 +20,9 @@ export class DashboardComponent implements OnInit {
   key:any
 
   todoArr: Todo[];  // similar to myBooks[]
+  index: number
+  i: number
+
 
   public addTaskValue: string = '';
 
@@ -44,28 +47,43 @@ export class DashboardComponent implements OnInit {
       this.todoArr = this.todoService.getAllTodos();
     }
 
-  deleteTodo(form: NgForm) {
-    // const index = this.todoArr.indexOf(todo)
 
-    let thisTodo: Todo = {
-      text: form.value.text,
-      completed: true
+    deleteTodo(todo:Todo){
+      this.todoArr = this.todoService.getAllTodos();
     }
-    form.reset()
-    this.todoService.deleteTodo(thisTodo)
-  }
 
 
 
-  editTodo(todo: Todo) {
-    const index = this.todoArr.indexOf(todo)
 
-    let dialogRef = this.dialog.open(EditModalComponent, {
-      width: '700px',
-      data: todo
-    });
-  }
+
+  // editTodo(todo: Todo) {
+
+  //   const index = this.todoArr.indexOf(todo)
+
+  //   let dialogRef = this.dialog.open( {
+  //     width: '700px',
+  //     data: todo
+  //   });
+  // }
+
+
 }
+
+
+
+  // deleteTodo(form: NgForm) {
+  //   // const index = this.todoArr.indexOf(todo)
+
+  //   let thisTodo: Todo = {
+  //     text: form.value.text,
+  //     completed: true
+  //   }
+  //   form.reset()
+  //   this.todoService.deleteTodo()
+
+  //   this.todoArr = this.todoService.getAllTodos();
+  // }
+
   //   dialogRef.afterClosed().subscribe((result) => {
   //     if (result) {
   //       this.todoService.updateTodo(index, result)

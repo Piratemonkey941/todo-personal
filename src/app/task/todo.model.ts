@@ -1,7 +1,8 @@
 export class Todo {
 
   text: string
-   completed: boolean = false
+  completed: boolean = false
+  
 }
 
 // name: string = '';

@@ -13,7 +13,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TodoItemComponent } from './todo-item/todo-item.component';
-import { EditModalComponent } from './edit-modal/edit-modal.component';
+// import { EditModalComponent } from './edit-modal/edit-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -24,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       CalendarComponent,
       NavigationComponent,
       TodoItemComponent,
-      EditModalComponent,
+      // EditModalComponent,
 
   ],
   imports: [

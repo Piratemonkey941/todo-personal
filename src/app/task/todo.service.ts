@@ -22,34 +22,62 @@ export class TodoService {
  }
 
   addTodo(todo: Todo) {
-    let cache: Todo[] = [];
+    let cache: Todo[] = []; // empty to fill later
 
-    if(this.getAllTodos() === null){
+    //pulling whole list adding then returning
+    // checking array/ local host
+    if(this.getAllTodos() === null){ // if nothing in list send something new
       cache.push(todo);
     }else{
-      cache = this.getAllTodos();
+      cache = this.getAllTodos();  //if something in list send something new
       cache.push(todo);
     }
 
     localStorage.setItem(this.todoKey, JSON.stringify(cache))
-
   }
 
-  updateTodo(index: number, updatedTodo: Todo) {
-    this.todos[index] = updatedTodo
-  }
+  deleteTodo(todoIndex: number) {
+    let cache: Todo[] = [];
 
-  deleteTodo(todo: Todo) {
+    if(this.getAllTodos() === null){ // if nothing in list send something new
+      return;
+    }else{
+      cache = this.getAllTodos();  //if something in list send something new
+      cache.splice(todoIndex, 1);
 
-    let todos = this.getAllTodos()
+      localStorage.setItem(this.todoKey, JSON.stringify(cache))
+    }
+    // this.todoArr = this.todoService.getAllTodos();
     // this.todos.splice(index, 1)
   }
 
   deleteTodos(todo: Todo) {
 
-    console.log(this.todoKey);
+    // console.log(this.todoKey);
     localStorage.removeItem('todos')
     // this.todos.splice(index, 1)
+  }
+
+  updateTodo(todoIndex: number, updatedTodo: Todo) {
+    //get array from local storage
+    let cache: Todo[] = [];
+
+    if(this.getAllTodos() === null){ // if nothing in list send something new
+      return;
+    }else{
+      cache = this.getAllTodos();  //if something in list send something new
+
+
+      cache.splice(todoIndex, 1, updatedTodo);
+
+      localStorage.setItem(this.todoKey, JSON.stringify(cache))
+    }
+    //delele todo @ index
+
+    //todos.splice(index, 1, updatedtodo)
+
+    //localstorage.setitem
+    // this.todos[index] = updatedTodo
   }
 
 

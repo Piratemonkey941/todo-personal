@@ -48,11 +48,13 @@
 
                   <div class="card col-md-10 border-0">
                     <app-todo-item
-                    *ngFor="let todo of todoArr"
-                    [todo]="todo"
-                    (todoClicked)="toggleCompleted(todo)"
-                    (editClicked)="editTodo(todo)"
-                    (deleteClicked)="deleteTodo(todo)"
+                        *ngFor="let todo of todoArr; let i = index"
+                        [todo]="todo"
+                        [todoIndex]="i"
+                        (todoClicked)="toggleCompleted(todo)"
+                        (editClicked)="editTodo(todo)"
+                        (deleteClicked)="deleteTodo(todo)"
+
                   ></app-todo-item>
                   </div>
                 </div>
