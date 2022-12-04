@@ -1,15 +1,7 @@
 export class Todo {
 
- constructor(
-  public text: string,
-  public completed: boolean = false ) {}
-
-
-  // id: number = 0;
-
-  // constructor(public name: string ) {
-  //   this.name = name;
-  // }
+  text: string
+   completed: boolean = false
 }
 
 // name: string = '';
@@ -18,3 +10,13 @@ export class Todo {
 //   isArchived = false;
 //   children: Task[];
 //   dueDate: Date;
+
+  // id: number = 0;
+
+  // constructor(public name: string ) {
+  //   this.name = name;
+  // }
+  // constructor(
+  //   public text: string,
+  //   public completed: boolean = false ) {}
+

@@ -34,15 +34,25 @@ export class DashboardComponent implements OnInit {
 
   addTodo(form: NgForm) {
 
-    this.todoService.addTodo( new Todo(form.value.text))
+      let thisTodo: Todo = {
+        text: form.value.text,
+        completed: false
+      }
+      this.todoService.addTodo(thisTodo)
 
-    form.reset()
-
+      form.reset()
+      this.todoArr = this.todoService.getAllTodos();
     }
 
-  deleteTodo(todo: Todo) {
-    const index = this.todoArr.indexOf(todo)
-    this.todoService.deleteTodo(index)
+  deleteTodo(form: NgForm) {
+    // const index = this.todoArr.indexOf(todo)
+
+    let thisTodo: Todo = {
+      text: form.value.text,
+      completed: true
+    }
+    form.reset()
+    this.todoService.deleteTodo(thisTodo)
   }
 
 
@@ -54,13 +64,14 @@ export class DashboardComponent implements OnInit {
       width: '700px',
       data: todo
     });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        this.todoService.updateTodo(index, result)
-      }
-    })
   }
+}
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     if (result) {
+  //       this.todoService.updateTodo(index, result)
+  //     }
+  //   })
+  // }
   // console.log(idx)
   // deleteTasks() {   // clear all tasks
 
@@ -81,7 +92,7 @@ export class DashboardComponent implements OnInit {
   //   //array.index of
   // }
 
-}
+
 
 
 

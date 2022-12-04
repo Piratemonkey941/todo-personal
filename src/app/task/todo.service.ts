@@ -8,24 +8,48 @@ import { Todo } from './todo.model';
 })
 export class TodoService {
 
+  todoKey = 'todo'
   todos: Todo[] = []
+
 
   constructor() { }
 
-  getAllTodos() {
-    return this.todos
-  }
+  getAllTodos(): Todo[] {
+    const cache = JSON.parse(localStorage.getItem(this.todoKey));
+
+    return cache
+
+ }
 
   addTodo(todo: Todo) {
-    this.todos.push(todo)
+    let cache: Todo[] = [];
+
+    if(this.getAllTodos() === null){
+      cache.push(todo);
+    }else{
+      cache = this.getAllTodos();
+      cache.push(todo);
+    }
+
+    localStorage.setItem(this.todoKey, JSON.stringify(cache))
+
   }
 
   updateTodo(index: number, updatedTodo: Todo) {
     this.todos[index] = updatedTodo
   }
 
-  deleteTodo(index: number) {
-    this.todos.splice(index, 1)
+  deleteTodo(todo: Todo) {
+
+    let todos = this.getAllTodos()
+    // this.todos.splice(index, 1)
+  }
+
+  deleteTodos(todo: Todo) {
+
+    console.log(this.todoKey);
+    localStorage.removeItem('todos')
+    // this.todos.splice(index, 1)
   }
 
 
