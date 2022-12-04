@@ -9,19 +9,16 @@
   <div class="todo-controls-box" appToolTipSingleton (click)="$event.stopPropagation()">
 
     <div class="todo-control-button" appToolTip="Edit Todo" (click)="onEditClicked()">
-      <!-- <button
-      class="btn btn-outline-primary btn-sm col-me-2 float-end"
-      data-bs-toggle="modal"
-      type="button"
-      data-bs-target="#exampleModal"
-      appToolTip="Edit Todo"
-      (click)="onEditClicked()" -->
+
       <button
       type="button"
       class="btn btn-outline-primary btn-sm col-me-2 float-end"
       data-toggle="modal"
       data-target="#exampleModal"
       appToolTip="Edit Todo"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      (click)="onEditClicked()"
       >
       Edit</button>
 
@@ -35,37 +32,27 @@
       >
         Delete
     </button>
+
+
+
   </div>
+
 </div>
-
-
-
 
 <!-- Modal -->
 
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+<div
+class="modal fade"
+id="exampleModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+  <div
+  class="modal-dialog"
+  role="document">
+    <div
+    class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -92,69 +79,10 @@
         </div>
         </form>
       </div>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"></button>
         <button type="button" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
-</div> -->
-
-
-<!-- [ngModel]="todo.text" goes in the input-->
-<!-- <div class="modal">
-    <h1 class="title">Edit Todo</h1>
-    <div mat-dialog-content>
-
-        <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
-            <div class="field">
-                <div class="control">
-                    <input
-                        type="text"
-                        class="input"
-                        [ngModel]="todo.text"
-                        #todoTextField="ngModel"
-                        name="text"
-                        required
-                        minlength="2"
-                        placeholder="Type todo text here...">
-                </div>
-
-                <div *ngIf="todoTextField.invalid">
-                    <p class="help is-danger" *ngIf="todoTextField.errors.required">Please enter the text of your todo</p>
-                    <p class="help is-danger" *ngIf="todoTextField.errors.minlength">Todo text must be at least 2 characters</p>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="field is-grouped is-grouped-right">
-                <div class="control">
-                    <button type="button" class="button is-light" (click)="close()">Cancel</button>
-                </div>
-
-                <div class="control">
-                    <button type="submit" class="button alt-gradient-button">
-                        <i class="material-icons">save</i>
-                        Save
-                    </button>
-                </div>
-            </div>
-        </form>
-
-    </div>
-</div> -->
-
-
-
-<!--
-<button
-class="btn btn-outline-primary btn-sm col-me-2 float-end"
-data-bs-toggle="modal"
-type="button"
-data-bs-target="#exampleModal"
-appToolTip="Edit Todo"
-(click)="onEditClicked()"
-  Edit
-      </button>
-> -->
+</div>

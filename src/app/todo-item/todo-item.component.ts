@@ -30,7 +30,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   onEditClicked() {
-    this.todoService.updateTodo(this.todoIndex, this.todo)
+    this.todoService.editTodo(this.todoIndex, this.todo)
     this.editClicked.emit()
   }
 

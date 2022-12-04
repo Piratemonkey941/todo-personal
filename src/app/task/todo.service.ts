@@ -58,7 +58,7 @@ export class TodoService {
     // this.todos.splice(index, 1)
   }
 
-  updateTodo(todoIndex: number, updatedTodo: Todo) {
+  editTodo(todoIndex: number, editTodo: Todo) {
     //get array from local storage
     let cache: Todo[] = [];
 
@@ -68,7 +68,7 @@ export class TodoService {
       cache = this.getAllTodos();  //if something in list send something new
 
 
-      cache.splice(todoIndex, 1, updatedTodo);
+      cache.splice(todoIndex, 1, editTodo);
 
       localStorage.setItem(this.todoKey, JSON.stringify(cache))
     }
