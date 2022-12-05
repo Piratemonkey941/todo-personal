@@ -67,11 +67,16 @@ export class TodoService {
     }else{
       cache = this.getAllTodos();  //if something in list send something new
 
-
+      console.log(cache)
       cache.splice(todoIndex, 1, editTodo);
+      console.log(cache)
+
+
 
       localStorage.setItem(this.todoKey, JSON.stringify(cache))
     }
+
+
     //delele todo @ index
 
     //todos.splice(index, 1, updatedtodo)

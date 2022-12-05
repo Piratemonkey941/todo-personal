@@ -52,8 +52,13 @@ export class DashboardComponent implements OnInit {
       this.todoArr = this.todoService.getAllTodos();
     }
 
+  onEditTodo(){
+
+    this.todoArr = this.todoService.getAllTodos();
+    console.log('onEditTodo');
+  }
+
   }
 
 
 
- 

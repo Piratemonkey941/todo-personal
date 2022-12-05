@@ -20,6 +20,8 @@ export class TodoItemComponent implements OnInit {
 
   constructor( private todoService: TodoService) {}
 
+  editedText: string = '';
+
 
 
   ngOnInit(): void {
@@ -30,13 +32,17 @@ export class TodoItemComponent implements OnInit {
   }
 
   onEditClicked() {
-    this.todoService.editTodo(this.todoIndex, this.todo)
+    let etodo: Todo = {
+      text: this.editedText,
+      completed: false
+    }
+    this.todoService.editTodo(this.todoIndex, etodo)
     this.editClicked.emit()
+    console.log('onEditClicked')
   }
 
   onDeleteClicked(index) {
-    console.log(this.todoIndex);
-    console.log(index)
+
 
     this.todoService.deleteTodo(index)
     this.deleteClicked.emit()

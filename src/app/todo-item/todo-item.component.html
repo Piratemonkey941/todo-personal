@@ -8,7 +8,7 @@
 
   <div class="todo-controls-box" appToolTipSingleton (click)="$event.stopPropagation()">
 
-    <div class="todo-control-button" appToolTip="Edit Todo" (click)="onEditClicked()">
+    <div class="todo-control-button" appToolTip="Edit Todo">
 
       <button
       type="button"
@@ -18,7 +18,7 @@
       appToolTip="Edit Todo"
       data-bs-toggle="modal"
       data-bs-target="#exampleModal"
-      (click)="onEditClicked()"
+
       >
       Edit</button>
 
@@ -71,6 +71,7 @@ aria-hidden="true">
             name="text"
             required
             minlength="2"
+            [(ngModel)]="editedText"
           ></div>
 
           <div *ngIf="todoTextField.invalid">
@@ -81,7 +82,7 @@ aria-hidden="true">
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" (click)="onEditClicked()">Submit</button>
       </div>
     </div>
   </div>
