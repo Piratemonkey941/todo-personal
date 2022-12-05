@@ -72,6 +72,8 @@ aria-hidden="true">
             required
             minlength="2"
             [(ngModel)]="editedText"
+            placeholder="{{todo.text}}"
+
           ></div>
 
           <div *ngIf="todoTextField.invalid">
