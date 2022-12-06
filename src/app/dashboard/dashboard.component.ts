@@ -3,7 +3,7 @@ import { Todo } from '../task/todo.model';
 import { TodoService } from '../task/todo.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+
 import { NgForm } from '@angular/forms';
 
 
@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
 
   showValidationErrors: boolean
 
-  constructor(private todoService: TodoService,  private dialog: MatDialog) {}
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
     this.todoArr = this.todoService.getAllTodos();
@@ -39,6 +39,7 @@ export class DashboardComponent implements OnInit {
 
       let thisTodo: Todo = {
         text: form.value.text,
+        details: form.value.details,
         completed: false
       }
       this.todoService.addTodo(thisTodo)
@@ -58,7 +59,7 @@ export class DashboardComponent implements OnInit {
     console.log('onEditTodo');
   }
 
-  }
+}
 
 
 

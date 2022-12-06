@@ -1,9 +1,9 @@
-<div class="container-fluid bg-light">
+<div class="container-fluid bg-light title" style="position: relative; top: 30px;">
   <div class="container bg-light">
 
     <div class="row mt-4" >
 
-      <div class="col-md-9 mx-auto bg-white shadow">
+      <div class="col-md-9 mx-auto bg-white shadow pb-3">
         <div class="sticky-header">
 
 
@@ -11,7 +11,7 @@
           <h4 class="text-white p-3 pt-2 pb-2 ">To Do Tracker</h4>
         </div>
 
-      <div class="container">
+      <!-- <div class="container"> -->
         <div class="shadow">
 
           <form #form="ngForm" (ngSubmit)="addTodo(form)">
@@ -26,6 +26,16 @@
                 class="form-control input"
                 placeholder="Enter todo "
                 />
+                <input
+                ngModel
+                #todoTextField="ngModel"
+                required
+                minlength="2"
+                name="details"
+                type="details"
+                class="form-control input"
+                placeholder="Details "
+                />
                 <button
                   class="btn btn-outline-success"
                   type="submit"
@@ -36,17 +46,17 @@
               </div>
             </form>
         </div>
-      </div>
+      <!-- </div> -->
 
       <h4 class="text-primary mt-4">Todos :</h4>
-      <div style="overflow-y: auto; height: 350px">
+      <!-- <div style="overflow-y: auto; height: 350px">
           <div>
 
             <div class="p-2 shadow border" id="tasks">
               <div class="input-group row ps-3">
                 <div>
 
-                  <div class="card col-md-10 border-0">
+                  <div class="card col-md-10 border-0"> -->
                     <app-todo-item
                         *ngFor="let todo of todoArr; let i = index"
                         [todo]="todo"
@@ -56,14 +66,14 @@
                         (deleteClicked)="deleteTodo(todo)"
 
                   ></app-todo-item>
-                  </div>
+                  <!-- </div>
                 </div>
 
 
               </div>
             </div>
           </div>
-      </div>
+      </div> -->
       </div>
     </div>
   </div>

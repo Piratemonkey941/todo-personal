@@ -76,14 +76,14 @@ export class TodoService {
       localStorage.setItem(this.todoKey, JSON.stringify(cache))
     }
 
-
+  }
     //delele todo @ index
 
     //todos.splice(index, 1, updatedtodo)
 
     //localstorage.setitem
     // this.todos[index] = updatedTodo
-  }
+
 
 
   //========================================

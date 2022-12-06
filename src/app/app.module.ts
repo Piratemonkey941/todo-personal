@@ -14,7 +14,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 // import { EditModalComponent } from './edit-modal/edit-modal.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ReactiveFormsModule,
     MatDialogModule,
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     AppRoutingModule,
   ],
   providers: [],

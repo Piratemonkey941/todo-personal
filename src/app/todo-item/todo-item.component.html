@@ -1,12 +1,23 @@
 
-<div class="todo-item" (click)="onTodoClicked()" [class.completed]="todo.completed">
-
+<!-- <div class="todo-item" (click)="onTodoClicked()" [class.completed]="todo.completed"> -->
+  <div class="p-2 shadow border card mt-3">
   <!-- Displays text -->
-  <div class="todo-text">
-    {{ todo.text }}
-  </div>
 
-  <div class="todo-controls-box" appToolTipSingleton (click)="$event.stopPropagation()">
+  <details>
+    <summary class="text-primary">
+      {{ todo.text }}
+    </summary>
+    <p class="card border-0 text-info">
+      {{ todo.details }}
+    </p>
+  </details>
+      <!-- <div class="todo-text">
+        {{ todo.text }}
+      </div> -->
+
+  <div
+    class="todo-controls-box"
+    (click)="$event.stopPropagation()">
 
     <div class="todo-control-button" appToolTip="Edit Todo">
 
@@ -37,7 +48,7 @@
 
   </div>
 
-</div>
+<!-- </div> -->
 
 <!-- Modal -->
 
@@ -89,3 +100,5 @@ aria-hidden="true">
     </div>
   </div>
 </div>
+
+<!-- add details to edit function -->

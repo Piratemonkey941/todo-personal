@@ -21,19 +21,21 @@ export class TodoItemComponent implements OnInit {
   constructor( private todoService: TodoService) {}
 
   editedText: string = '';
+  detailsText: string = '';
 
 
 
   ngOnInit(): void {
   }
 
-  onTodoClicked() {
-    this.todoClicked.emit()
-  }
+  // onTodoClicked() {
+  //   this.todoClicked.emit()
+  // }
 
   onEditClicked() {
     let etodo: Todo = {
       text: this.editedText,
+      details: this.detailsText,
       completed: false
     }
     this.todoService.editTodo(this.todoIndex, etodo)
