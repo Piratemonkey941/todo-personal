@@ -59,7 +59,7 @@ export class TodoService {
   }
 
   editTodo(todoIndex: number, editTodo: Todo) {
-    //get array from local storage
+    //get array from local storage  TODO INDEX LOGING 0 POSITION EACH TIME INSTEAD OF SELECTED
     let cache: Todo[] = [];
 
     if(this.getAllTodos() === null){ // if nothing in list send something new
@@ -68,8 +68,9 @@ export class TodoService {
       cache = this.getAllTodos();  //if something in list send something new
 
       console.log(cache)
+      console.log("todoIndex", todoIndex)
       cache.splice(todoIndex, 1, editTodo);
-      console.log(cache)
+      console.log('string', editTodo)
 
 
 
@@ -77,14 +78,14 @@ export class TodoService {
     }
 
   }
-    //delele todo @ index
+    // delele todo @ index
 
-    //todos.splice(index, 1, updatedtodo)
+    // todos.splice(index, 1, updatedtodo)
 
-    //localstorage.setitem
+    // localstorage.setitem
     // this.todos[index] = updatedTodo
 
-
+  }
 
   //========================================
 
@@ -98,7 +99,7 @@ export class TodoService {
 
   // constructor(private http: HttpClient) {
     // this.serviceURL = 'http://localhost:3000/tasks';
-  }
+
 
   // addTask(task : Task) {
 

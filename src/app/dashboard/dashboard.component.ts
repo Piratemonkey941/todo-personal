@@ -20,8 +20,7 @@ export class DashboardComponent implements OnInit {
   key:any
 
   todoArr: Todo[];  // similar to myBooks[]
-  index: number
-  i: number
+
 
 
   public addTaskValue: string = '';
@@ -40,7 +39,7 @@ export class DashboardComponent implements OnInit {
       let thisTodo: Todo = {
         text: form.value.text,
         details: form.value.details,
-        completed: false
+        isCompleted: false
       }
       this.todoService.addTodo(thisTodo)
 

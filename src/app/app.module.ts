@@ -7,12 +7,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 // import {  } from '';
 
 import { AppComponent } from './app.component';
-import { MatDialogModule } from '@angular/material/dialog';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { ArchivedComponent } from './archived/archived.component';
+import { AuthComponent } from './auth/auth.component';
 // import { EditModalComponent } from './edit-modal/edit-modal.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -24,6 +26,8 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
       CalendarComponent,
       NavigationComponent,
       TodoItemComponent,
+      ArchivedComponent,
+      AuthComponent,
       // EditModalComponent,
 
   ],
@@ -32,7 +36,6 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatDialogModule,
     // BrowserAnimationsModule,
     AppRoutingModule,
   ],

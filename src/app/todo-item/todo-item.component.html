@@ -1,6 +1,7 @@
 
 <!-- <div class="todo-item" (click)="onTodoClicked()" [class.completed]="todo.completed"> -->
-  <div class="p-2 shadow border card mt-3">
+
+  <div *ngIf="todo.isCompleted != true" class="p-2 shadow border card mt-3">
   <!-- Displays text -->
 
   <details>
@@ -11,6 +12,8 @@
       {{ todo.details }}
     </p>
   </details>
+
+
       <!-- <div class="todo-text">
         {{ todo.text }}
       </div> -->
@@ -20,15 +23,25 @@
     (click)="$event.stopPropagation()">
 
     <div class="todo-control-button" appToolTip="Edit Todo">
+      <button
+      class="btn btn-outline-success btn-sm col-me-2 float-start"
+      type="button"
+      data-bs-target="#todoItemModal_{{ todoIndex }}"
+      appToolTip="Delete Todo"
+      (click)="onComplete(todo)"
+
+      >
+        Check
+      </button>
 
       <button
       type="button"
       class="btn btn-outline-primary btn-sm col-me-2 float-end"
       data-toggle="modal"
-      data-target="#exampleModal"
+      data-target="#todoItemModal_{{ todoIndex }}"
       appToolTip="Edit Todo"
       data-bs-toggle="modal"
-      data-bs-target="#exampleModal"
+      attr.data-bs-target="#todoItemModal_{{ todoIndex }}"
 
       >
       Edit</button>
@@ -37,9 +50,10 @@
     <button
         class="btn btn-outline-danger btn-sm col-me-2 float-end"
         type="button"
-        data-bs-target="#exampleModal"
+        data-bs-target="#todoItemModal_{{ todoIndex }}"
         appToolTip="Delete Todo"
-        (click)="onDeleteClicked(todoIndex)"
+        (click)="onDelete(todo)"
+
       >
         Delete
     </button>
@@ -49,56 +63,79 @@
   </div>
 
 <!-- </div> -->
-
+<!-- (click)="onDeleteClicked(todoIndex)" -->
 <!-- Modal -->
 
-<div
-class="modal fade"
-id="exampleModal"
-tabindex="-1"
-role="dialog"
-aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-  <div
-  class="modal-dialog"
-  role="document">
-    <div
-    class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Edit Todo</label>
-            <input
-            type="text"
-            class="form-control"
-            id="recipient-name"
-            #todoTextField
-            name="text"
-            required
-            minlength="2"
-            [(ngModel)]="editedText"
-            placeholder="{{todo.text}}"
+      <div
+      class="modal fade"
+      id="todoItemModal_{{ todoIndex }}"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="todoItemModal_{{ todoIndex }}Label"
+      aria-hidden="true">
+        <div
+        class="modal-dialog"
+        role="document">
+          <div
+          class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="todoItemModal_{{ todoIndex }}Label">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Edit Todo</label>
+                  <input
+                  type="text"
+                  class="form-control"
+                  id="recipient-name"
+                  #todoTextField
+                  name="text"
+                  required
+                  minlength="2"
+                  [(ngModel)]="editedText"
+                  placeholder="{{todo.text}}"
+                  >
+                  <input
+                  type="text"
+                  class="form-control"
+                  id="recipient-name"
+                  #todoTextField
+                  name="text"
+                  required
+                  minlength="2"
+                  [(ngModel)]="detailsText"
+                  placeholder="{{todo.details}}"
+                  >
 
-          ></div>
 
-          <div *ngIf="todoTextField.invalid">
-            <p class="help is-danger" *ngIf="todoTextField.errors.required">Please enter the text of your todo</p>
-            <p class="help is-danger" *ngIf="todoTextField.errors.minlength">Todo text must be at least 2 characters</p>
+
+                </div>
+
+                <!-- <div *ngIf="todoTextField.invalid">
+                  <p class="help is-danger" *ngIf="todoTextField.errors.required">Please enter the text of your todo</p>
+                  <p class="help is-danger" *ngIf="todoTextField.errors.minlength">Todo text must be at least 2 characters</p>
+                  <p>{{todoIndex}}</p>
+              </div> -->
+              </form>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="onEditClicked(todoIndex)"
+              >Submit</button>
+            </div>
+          </div>
         </div>
-        </form>
       </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="onEditClicked()">Submit</button>
-      </div>
-    </div>
-  </div>
 </div>
 
+<!-- <div *ngIf="todo.completed === true">
+  <i>{{todo.text}}</i>
+  </div> -->
 <!-- add details to edit function -->

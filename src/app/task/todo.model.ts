@@ -1,24 +1,11 @@
 export class Todo {
 
-  text: string
-  details: string
-  completed: boolean = false
+  // text: string
+  // details: string
+  isCompleted: boolean = false
+
+constructor(public text: string, public details: string = '') {
 
 }
-
-// name: string = '';
-// description: string = 'Lorem ipsum dolor sit amet.';
-//   isCompleted = false;
-//   isArchived = false;
-//   children: Task[];
-//   dueDate: Date;
-
-  // id: number = 0;
-
-  // constructor(public name: string ) {
-  //   this.name = name;
-  // }
-  // constructor(
-  //   public text: string,
-  //   public completed: boolean = false ) {}
+}
 

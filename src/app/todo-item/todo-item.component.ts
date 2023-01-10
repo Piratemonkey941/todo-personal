@@ -32,21 +32,30 @@ export class TodoItemComponent implements OnInit {
   //   this.todoClicked.emit()
   // }
 
-  onEditClicked() {
+  onEditClicked(todoIndex:number) {
     let etodo: Todo = {
       text: this.editedText,
       details: this.detailsText,
-      completed: false
+      isCompleted: false
     }
-    this.todoService.editTodo(this.todoIndex, etodo)
+    this.todoService.editTodo(todoIndex, etodo)
     this.editClicked.emit()
     console.log('onEditClicked')
   }
 
-  onDeleteClicked(index) {
 
+  //May not work
+  onComplete(todo){
+    todo.isCompleted = true;
+    this.todoService.editTodo(this.todoIndex, todo)
+    // TODO: Call methods on the todo service to persist the completed todo
+  }
 
-    this.todoService.deleteTodo(index)
+  // TODO: This should be aclled by the template delete button
+  onDelete(todoIndex) {
+
+    console.log('delete')
+    this.todoService.deleteTodo(todoIndex)
     this.deleteClicked.emit()
 
     // this.todoArr = this.todoService.getAllTodos();

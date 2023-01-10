@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 import { Todo } from '../task/todo.model';
 import { TodoService } from '../task/todo.service';
 
@@ -8,17 +10,25 @@ import { TodoService } from '../task/todo.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnDestroy {
+  isAuthenticated = false
+  private userSub: Subscription;
   collapsed: boolean = true;
-show: boolean = false;
+  show: boolean = false;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private authService: AuthService) { }
 
   // taskArr: Task[];  // similar to myBooks[]
 
   // public addTaskValue: string = '';
 
   ngOnInit(): void {
+   this.userSub = this.authService.user.subscribe(user => {
+       this.isAuthenticated = !!user;  // checking is user is true, logged in.
+   })
+  }
+  ngOnDestroy(): void {
+      this.userSub.unsubscribe()
   }
 
 
